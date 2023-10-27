@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:13:26 by wivieira          #+#    #+#             */
-/*   Updated: 2023/10/23 13:31:37 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:41:59 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,41 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {	
-	size_t	i;
-	size_t	j;
-	size_t	lenght;
+	size_t	lendest;
+	size_t	lensrc;
 
-	i = 0;
-	if (src == 0 || size == 0)
-		return (0);
-	while (dst[i])
+	lendest = ft_strlen(dst);
+	lensrc = ft_strlen(src);
+	if (!size || lendest >= size)
 	{
-		i++;
+		return (size + lensrc);
 	}
-	j = 0;
-	while (j < size)
-	{
-		dst[i + j] = src[j];
-		j++;
+	if (size - lendest > lensrc)
+	{	
+		ft_memcpy(dst + lendest, src, lensrc + 1);
 	}
-	dst[i + j] = '\0';
-	if (i < size)
-		lenght = i + ft_strlen(src);
 	else
-		lenght = i + size;
-	return (lenght);	
+	{
+		ft_memcpy(dst + lendest, src, size - lendest - 1);
+		dst[size - 1] = '\0';
+	}
+	return (lendest + lensrc);
 }
-// #include <stdio.h>
 // #include <string.h>
-
 // int main()
 // {
-//     char first[] = "This is ";
-//     char last[] = "a potentially long string";
-//     int r;
-//     int size = 32;
-//     char buffer[size];
-
-//     strcpy(buffer,first);
-//     r = ft_strlcat(buffer,last,size);
-
-//     printf("Value returned: %d\n",r);
-//     if( r > size )
-//         puts("String truncated");
-//     else
-//         puts("String was fully copied");
-//     return(0);
+// 	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
+// 	char buff1[0xF00] = "there is no stars in the sky";
+// 	char buff2[0xF00] = "there is no stars in the sky";
+// 	size_t max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
+// 	//printf("Tamanho do src:  %zu\n", max);
+// 	size_t dst = strlen(buff1);
+// 	//size_t origin = strlcat(buff1, src, max);
+// 	//printf("Tamanho do dest: %zu\n\n", dst);
+// 	//printf("FUNÇÃO PRINCIPAL: %zu\n\n", origin);
+// 	size_t myfunction = ft_strlcat(buff2, src, max);
+// 	printf("FUNÇÃO libft: %zu\n", myfunction);
+// 	// if (!strcmp(buff1, buff2))
+// 	//         printf("TEST_SUCCESS");
+// 	// printf("TEST_FAILED"); 
 // }

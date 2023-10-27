@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:26:39 by wivieira          #+#    #+#             */
-/*   Updated: 2023/10/23 14:57:58 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:04:22 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {	
-	int	i;
-	const unsigned char *s_one;
-	const unsigned char *s_two;
+	int				i;
+	unsigned char	*s_one;
+	unsigned char	*s_two;
+
 	s_two = s2;
 	s_one = s1;
-	
 	i = 0;
 	while ((s_one[i] != '\0' || s_two[i] != '\0') && i < n)
 	{
