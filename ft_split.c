@@ -1,32 +1,35 @@
 #include "libft.h"
 
-size_t countC(char *buffer, char c)
-{
-    size_t i;
-    size_t srch;
+// size_t countC(char *buffer, char c)
+// {
+//     size_t i;
+//     size_t srch;
     
-    srch = 0;
-    i = 0;
-    while(buffer[i] != '\0')
-    {
-        if(buffer[i] == (char const)c)
-        {
-            buffer[i] = '\0';
-            srch++;
-        }
-        i++;
-    }
-    return(srch);
-}
+//     srch = 0;
+//     i = 0;
+//     while(buffer[i] != '\0')
+//     {
+//         if(buffer[i] == (char const)c)
+//         {
+//             buffer[i] = '\0';
+//             srch++;
+//         }
+//         i++;
+//     }
+//     return(srch);
+// }
 
 char **ft_split(char const *s, char c)
 {      
     char *bufferpt;
     char **arrspt;
-    size_t len; 
+    
+    size_t len;
+    size_t matrix; 
     size_t srch;
     size_t i;
     size_t start;
+
 
     len = ft_strlen(s);
     bufferpt = (char *) malloc(len  + 1); // tem que colocar len  + 1 por conta do null em cada final de string
@@ -47,7 +50,7 @@ char **ft_split(char const *s, char c)
         }
         i++;
     }
-    srch = countC(bufferpt, c);
+    //srch = countC(bufferpt, c);
     arrspt = (char **)malloc((srch + 1) * sizeof(char *));
 
     if(!arrspt)
@@ -67,7 +70,7 @@ char **ft_split(char const *s, char c)
         }
         start++;
         i++;
-    }
+    }    
     return(arrspt);
 }
 
