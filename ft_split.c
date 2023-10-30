@@ -1,6 +1,5 @@
 #include "libft.h"
 
-
 static size_t ft_srchparam(char const *s, char c)
 {      
     size_t srch;

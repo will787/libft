@@ -13,51 +13,68 @@
 #include "libft.h"
 
 
-size_t ft_count(int n)
+char *ft_malloc_zero(void)
 {
-	size_t i;
+	char *c;
+
+	c = (char *) malloc(2 * sizeof(char));
+	if(!c)
+		return(NULL);
+	c[0] = '0';
+	c[1] = '\0';
+	
+	return(c);
+}
+
+
+static long int	ft_count(int n)
+{
+	int	i;
 
 	i = 0;
-	while(n > 0)
+	if (n <= 0)
 	{
-		n /= 10;		
-		n--;
 		i++;
 	}
-	printf("%zu", i);
-	return(i);
+	while(n != 0)
+	{	
+		i++;
+		n /= 10;		
+	}
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char *c;
-	int i;
-	size_t len;
-	int nb;
+	char			*c;
+	int				i;
+	unsigned int	nb;
+	long int		len;
 	
 	nb = n;
-	if(nb == 0)
-		return("0");
-	
 	len = ft_count(nb) + 1;
+	if (nb == 0)
+		return(ft_malloc_zero());
 	c = (char *)malloc((len) * sizeof(char));	
-
-	i = 0;
+	if (c == NULL)
+		return (NULL);
+	
+	if (n < 0)
+	{
+		c[0] = '-';
+		nb *= -1; 
+	}
+	i = len - 2;
 	while(nb > 0)
 	{
-		c[i++] = (nb % 10) + 48;
+		c[i--] = (nb % 10) + 48;
 		nb /= 10;
 	}
-	while(i > 0)
-	{
-		c[i--];
-	}
+	c[len - 1] = '\0';
 	return(c);
 }
 
-int main(void)
-{
-	char *res = ft_itoa(.0);
-    printf("%s\n", res);
-    free(res);	
-}
+// int main(void)
+// {
+// 	printf("%s\n", ft_itoa(-1000));
+// }
