@@ -55,10 +55,9 @@ char	*ft_itoa(int n)
 	len = ft_count(nb) + 1;
 	if (nb == 0)
 		return(ft_malloc_zero());
-	c = (char *)malloc((len) * sizeof(char));	
-	if (c == NULL)
+	c = ft_calloc(len, 1);	
+	if (!c)
 		return (NULL);
-	
 	if (n < 0)
 	{
 		c[0] = '-';
@@ -70,7 +69,6 @@ char	*ft_itoa(int n)
 		c[i--] = (nb % 10) + 48;
 		nb /= 10;
 	}
-	c[len - 1] = '\0';
 	return(c);
 }
 
