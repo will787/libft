@@ -58,19 +58,19 @@ char    **ft_split(char const *s, char c)
     arrspt[i] = '\0';
     return (arrspt);
 }
-int main(void)
-{
-    char **vetor = NULL;
-    int i;
-    char c =  32;
-    char *s = "                  olol";
-    char **result = ft_split(s, ' ');
+// int main(void)
+// {
+//     char **vetor = NULL;
+//     int i;
+//     char c =  32;
+//     char *s = "                  olol";
+//     char **result = ft_split(s, ' ');
 
-    vetor = ft_split("um codigo e um sonho um sonho", c);
-    i = 0;
-    while(vetor[i])
-    {
-        printf("[%d] %s \n", i, vetor[i]);
-        i++;
-    }
-}
+//     vetor = ft_split("um codigo e um sonho um sonho", c);
+//     i = 0;
+//     while(vetor[i])
+//     {
+//         printf("[%d] %s \n", i, vetor[i]);
+//         i++;
+//     }
+// }
