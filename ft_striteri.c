@@ -2,7 +2,7 @@
 
 void    f(unsigned int i, char *c)
 {
-    char str;
+    char    *str;
     if(*c >= 65 && *c <= 90)
         str = *c + 32;
     else if(*c >=  97 && *c <= 122)

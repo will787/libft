@@ -2,7 +2,7 @@
 
 void ft_putchar_fd(char c, int fd)
 {   
-    size_t i;
+    int i;
 
     i = 0;
     while(i < fd)

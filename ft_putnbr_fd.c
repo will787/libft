@@ -2,9 +2,6 @@
 
 void    ft_putnbr_fd(int n, int fd)
 {   
-    int div;
-    int tmp;
-
     if(n == -2147483648)
     {
         ft_putstr_fd("-2147483648", fd);
@@ -23,8 +20,8 @@ void    ft_putnbr_fd(int n, int fd)
         ft_putchar_fd(n + 48, fd);
 }
 
-int main(void)
-{   
-    ft_putnbr_fd(1000, 1);
-    printf("\n");
-}
+// int main(void)
+// {   
+//     ft_putnbr_fd(1000, 1);
+//     printf("\n");
+// }
