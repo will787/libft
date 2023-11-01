@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <bsd/string.h>
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	char	*result;
 
 	if (*little == '\0')
 	{
@@ -40,6 +37,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+//#include <bsd/string.h>
 // int main(void)
 // {
 //         char *s1 = "aaxx";lll

@@ -22,4 +22,5 @@ void	*ft_bzero(void *s, size_t n)
 		str[n - 1] = 0;
 		n--;
 	}
+
 }

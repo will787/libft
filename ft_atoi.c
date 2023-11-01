@@ -19,7 +19,7 @@ int	ft_atoi(const char *nptr)
 	int	result;
 
 	i = 0;
-	if (nptr == NULL)
+	if (!(*nptr))
 		return (0);
 	while (nptr[i] && (nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 	{
@@ -43,7 +43,5 @@ int	ft_atoi(const char *nptr)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	const char *pt;
-// 	pt = "-12343242";
-// 	printf("%d\n", ft_atoi(pt));
+//         ft_atoi(((void*)0));
 // }
