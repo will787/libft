@@ -1,14 +1,5 @@
 #include "libft.h"
 
-void    f(unsigned int i, char *c)
-{
-    char    *str;
-    if(*c >= 65 && *c <= 90)
-        str = ft_tolower(c);
-    else if(*c >=  97 && *c <= 122)
-        str = ft_toupper(c);
-}
-
 void    ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
     size_t i;
@@ -23,6 +14,15 @@ void    ft_striteri(char *s, void (*f)(unsigned int, char*))
         i++;
     }
 }
+
+// void    f(unsigned int i, char *c)
+// {
+//     char    *str;
+//     if(*c >= 65 && *c <= 90)
+//         str = ft_tolower(c);
+//     else if(*c >=  97 && *c <= 122)
+//         str = ft_toupper(c);
+// }
 
 // int main(void)
 // {   
