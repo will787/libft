@@ -4,9 +4,9 @@ void    f(unsigned int i, char *c)
 {
     char    *str;
     if(*c >= 65 && *c <= 90)
-        str = *c + 32;
+        str = ft_tolower(c);
     else if(*c >=  97 && *c <= 122)
-        str = *c - 32;
+        str = ft_toupper(c);
 }
 
 void    ft_striteri(char *s, void (*f)(unsigned int, char*))

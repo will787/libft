@@ -1,5 +1,4 @@
 NAME = libft.a
-
 HEADER = libft.h
 OPTION = -c -I $(HEADER)
 FLAGS = -Wall -Wextra -Werror
@@ -53,3 +52,4 @@ fclean: clean
 	-rm -f $(NAME)
 
 re: fclean all
+
