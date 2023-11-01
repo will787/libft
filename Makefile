@@ -37,6 +37,9 @@ SRC = ft_isalpha.c \
        ft_putstr_fd.c \
        ft_putendl_fd.c \
        ft_putnbr_fd.c \
+       ft_lstnew.c \
+       ft_lstadd_front.c \
+       ft_lstsize.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -48,6 +51,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
 
 clean:
 	-rm -f $(OBJ) $(BONUS_OBJ)
