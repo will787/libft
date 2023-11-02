@@ -40,13 +40,14 @@ SRC = ft_isalpha.c \
 
 OBJ = $(SRC:.c=.o)
 
-BONUS = ft_lstnew.c \
-       ft_lstnew.c \
+BONUS_SRC = ft_lstnew.c \
        ft_lstadd_front.c \
        ft_lstsize.c \
        ft_lstlast.c \
+       ft_lstadd_back.c \
 
-BONUS_OBJ = $(BONUS:.c=.o)
+
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
@@ -63,3 +64,5 @@ fclean: clean
 	-rm -f $(NAME)
 
 re: fclean all
+
+.PHONY : all bonus clean fclean re
