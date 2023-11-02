@@ -1,8 +1,3 @@
-NAME = libft.a
-HEADER = libft.h
-OPTION = -c -I $(HEADER)
-FLAGS = -Wall -Wextra -Werror
-
 SRC = ft_isalpha.c \
        ft_isdigit.c \
        ft_isalnum.c \
@@ -38,24 +33,30 @@ SRC = ft_isalpha.c \
        ft_putendl_fd.c \
        ft_putnbr_fd.c \
 
+BONUSB = ft_lstnew_bonus.c \
+       ft_lstadd_front_bonus.c \
+       ft_lstsize_bonus.c \
+       ft_lstlast_bonus.c \
+       ft_lstadd_back_bonus.c \
+
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUSB:.c=.o)
+NAME = libft.a
+HEADER = libft.h
+ccc = cc
+LIBC = ar rcs
+CFLAGS = -Wall -Wextra -Werror
 
-BONUS_SRC = ft_lstnew.c \
-       ft_lstadd_front.c \
-       ft_lstsize.c \
-       ft_lstlast.c \
-       ft_lstadd_back.c \
+.c.o:
+	${ccc} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+$(NAME): $(OBJ)
+	$(LIBC) $(NAME) $(OBJ)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rc $(NAME) $(BONUS_OBJS) $(OBJS)
+bonus: $(NAME) $(BONUS_OBJ)
+	$(LIBC) $(NAME) $(BONUS_OBJ) 
 
 clean:
 	-rm -f $(OBJ) $(BONUS_OBJ)

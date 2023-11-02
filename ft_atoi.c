@@ -14,14 +14,14 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int					i;
+	int					sign;
+	unsigned long int	result;
 
 	i = 0;
 	if (!(*nptr))
 		return (0);
-	while (nptr[i] && (nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 	{
 		i++;
 	}
