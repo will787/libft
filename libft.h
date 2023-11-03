@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:55:11 by wivieira          #+#    #+#             */
-/*   Updated: 2023/11/03 18:14:31 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/11/03 20:16:11 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {
@@ -65,4 +66,5 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
 #endif

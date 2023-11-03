@@ -16,14 +16,13 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 	{
-		return ;
-	}	
-
-    while (lst -> next)
-    {
-        lst = lst -> next;
-    }
-    return lst;
+		return NULL;
+	}
+	while (lst -> next)
+	{
+		lst = lst -> next;
+	}
+	return (lst);
 }
 // int main(void)
 // {
@@ -33,9 +32,6 @@ t_list	*ft_lstlast(t_list *lst)
 //     t_list *lst = ft_lstnew("ultimo");
 //     ft_lstadd_front(&lst, ft_lstnew("meio"));
 //     ft_lstadd_front(&lst, ft_lstnew("primeiro"));
-
 //     t_list *end = ft_lstlast(lst);
-
-
 //     printf("%s\n", (char *) end->content);
 // }
