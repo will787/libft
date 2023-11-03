@@ -1,19 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 13:21:54 by wivieira          #+#    #+#             */
+/*   Updated: 2023/11/03 13:21:54 by wivieira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    if(!lst)
-        return(NULL);
-    while(lst -> next)
+	if (!lst)
+		return NULL;
+
+    while (lst -> next)
     {
-        lst = lst->next;
+        lst = lst -> next;
     }
-    return(lst);
+    return lst;
 }
-
-#include "libft.h"
-#include <stdio.h>
-
+// #include "libft.h"
+// #include <stdio.h>
 // int main(void)
 // {
 //     // aqui basicamente ele guarda os elemento

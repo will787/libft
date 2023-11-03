@@ -6,12 +6,13 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 12:55:11 by wivieira          #+#    #+#             */
-/*   Updated: 2023/10/27 18:49:57 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:15:33 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

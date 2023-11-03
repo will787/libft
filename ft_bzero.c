@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:44:37 by wivieira          #+#    #+#             */
-/*   Updated: 2023/10/25 18:15:02 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:24:07 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {	
-		size_t	i;
-		char	*str;
+	size_t	i;
+	char	*str;
 
-		str = (char *) s;
-		i = 0;
-		while (i < n)
-		{	
-			str[i] = 0;
-			i++;
-		}
+	str = (char *) s;
+	i = 0;
+	while (i < n)
+	{	
+		str[i] = 0;
+		i++;
+	}
 }
