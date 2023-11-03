@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:07:19 by wivieira          #+#    #+#             */
-/*   Updated: 2023/10/30 18:33:25 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/11/03 15:21:16 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char *ft_malloc_zero(void)
 	
 	return(c);
 }
-
 
 static long int	ft_count(int n)
 {
