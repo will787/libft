@@ -1,75 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/30 11:09:24 by wivieira          #+#    #+#             */
+/*   Updated: 2023/11/03 11:53:17 by wivieira         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t ft_srchparam(char const *s, char c)
-{      
-    size_t  srch;
-    if (!*s)
-        return (0);
+static size_t	ft_srchparams(char const *s, char c)
+{
+	size_t	srch;
+	size_t	i;
 
-    srch = 0;
-    while (*s)
-    {     
-        while (*s == c)
-            s++;
-        if (*s)
-            srch++;
-        while (*s != c && *s)
-            s++;
-    }
-    return (srch);
+	srch = 0;
+	i = 0;
+	if (*s == '\0')
+		return (0);
+	while (s[i] != '\0' && s[i] == c)
+		i++;
+	while (s[i])
+	{
+		srch++;
+		while (s[i] != c && s[i])
+				i++;
+		while (s[i] == c && s[i])
+			i++;
+	}
+	return (srch);
 }
 
-char    **ft_split(char const *s, char c)
-{      
-    char        **arrspt;
-    const char *start;
-    size_t      i;
+void	ft_free_memory(char **matrix)
+{
+	int	i;
 
-    // len = ft_strlen(s) + 1; // tem que colocar len  + 1 por conta do null em cada final de string
-    // bufferpt = (char *) malloc(len); 
-    // if(!bufferpt)
-    //     return(NULL);
-    // ft_strlcpy(bufferpt, s, len); // aqui ela faz a copia do conteúdo que tá no S e passa para o pt --
+	i = 0;
+	while (matrix[i])
+	{
+		free(matrix[i]);
+		i++;
+	}
+	free(matrix);
+}
 
-    arrspt = (char **)malloc((ft_srchparam(s, c) + 1) * sizeof(char *));
-    if (!arrspt)
-    {  
-        return (NULL);
-    }
+char	**ft_split(char const *s, char c)
+{
+	char		**arrspt;
+	const char	*start;
+	size_t		i;
 
-    i = 0;
-    while (*s)
-    {
-        while (*s == c && *s)
-        {
-            s++;
-        }
-        if (*s)
-        {
-            start = s;
-            while (*s != c && *s)
-            {
-                s++;
-            }
-            arrspt[i++] = ft_substr(start, 0, s - start);
-        }
-    }
-    arrspt[i] = '\0';
-    return (arrspt);
+	arrspt = (char **)malloc((ft_srchparams(s, c) + 1) * sizeof(char *));
+	if (arrspt == NULL)
+		return (NULL);
+	arrspt[ft_srchparams(s, c)] = NULL;
+	i = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+		{
+			start = s;
+			while (*s != c && *s)
+				s++;
+			arrspt[i] = ft_substr(start, 0, s - start);
+			if (arrspt[i] == NULL)
+			{
+				ft_free_memory (arrspt);
+				return (NULL);
+			}
+			i++;
+		}
+	}
+	return (arrspt);
 }
 // int main(void)
 // {
-//     char **vetor = NULL;
-//     int i;
-//     char c =  32;
-//     char *s = "                  olol";
-//     char **result = ft_split(s, ' ');
-
-//     vetor = ft_split("um codigo e um sonho um sonho", c);
-//     i = 0;
-//     while(vetor[i])
-//     {
-//         printf("[%d] %s \n", i, vetor[i]);
-//         i++;
-//     }
+// 	char **ref;
+// 	char c = 32;
+// 	int i;
+// 	ref = ft_split("nonempty", '\0');	
+// 	i = 0;
+// 	while(ref[i])
+// 	{
+// 		printf("[%d] %s \n", i, ref[i]);
+// 		i++;	
+// 	}
 // }

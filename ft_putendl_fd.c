@@ -6,9 +6,9 @@ void    ft_putendl_fd(char *s, int fd)
     ft_putchar_fd('\n', fd);
 }
 
-// int main(void)
-// {
-//     char *str;
-//     str = "abobora a bobora";
-//     ft_putendl_fd(str, 1);
-// }
+int main(void)
+{
+    char *str;
+    str = "abobora a bobora";
+    ft_putendl_fd(str, 1);
+}
