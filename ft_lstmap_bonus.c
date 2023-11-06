@@ -6,7 +6,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
     t_list  *tmp;
     void    *ptv;
 
-    if(!lst || !f || !del)
+    if (!lst || !f || !del)
         return(NULL);
 
     pl = NULL;
@@ -23,5 +23,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
         ft_lstadd_back(&pl, tmp); 
         lst = lst -> next;
     }
-    return(pl);
+    return (pl);
 }
