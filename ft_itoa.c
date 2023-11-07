@@ -6,7 +6,7 @@
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:07:19 by wivieira          #+#    #+#             */
-/*   Updated: 2023/11/03 15:21:16 by wivieira         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:45:56 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char *ft_malloc_zero(void)
 	
 	return(c);
 }
-
 static long int	ft_count(int n)
 {
 	int	i;
@@ -42,7 +41,6 @@ static long int	ft_count(int n)
 	}
 	return (i);
 }
-
 char	*ft_itoa(int n)
 {
 	char			*c;
@@ -70,7 +68,6 @@ char	*ft_itoa(int n)
 	}
 	return(c);
 }
-
 // int main(void)
 // {
 // 	printf("%s\n", ft_itoa(-1000));

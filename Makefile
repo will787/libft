@@ -17,13 +17,13 @@ SRC = ft_isalpha.c \
        ft_strchr.c \
        ft_strrchr.c \
        ft_strnstr.c \
-	ft_atoi.c \
-	ft_isascii.c \
-	ft_calloc.c \
-	ft_strdup.c \
+		ft_atoi.c \
+		ft_isascii.c \
+		ft_calloc.c \
+		ft_strdup.c \
        ft_substr.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
        ft_split.c \
        ft_itoa.c \
        ft_strmapi.c \
@@ -38,7 +38,7 @@ BONUSB = ft_lstnew_bonus.c \
        ft_lstsize_bonus.c \
        ft_lstlast_bonus.c \
        ft_lstadd_back_bonus.c \
-	ft_lstdelone_bonus.c \
+	   ft_lstdelone_bonus.c \
        ft_lstclear_bonus.c \
        ft_lstiter_bonus.c \
        ft_lstmap_bonus.c \
@@ -51,16 +51,20 @@ ccc = cc
 LIBC = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 
+ifdef	WITH_BONUS
+	OBJ += $(BONUS_OBJ)
+endif
+
 .c.o:
 	${ccc} ${CFLAGS} -c $< -o ${<:.c=.o}
+	$(LIBC) $(NAME) ${<:.c=.o}
 
 $(NAME): $(OBJ)
-	$(LIBC) $(NAME) $(OBJ)
 
-all: $(NAME)
+bonus: 
+	@make WITH_BONUS=TRUE --no-print-directory
 
-bonus: $(NAME) $(BONUS_OBJ)
-	$(LIBC) $(NAME) $(BONUS_OBJ) 
+all: $(NAME) 
 
 clean:
 	-rm -f $(OBJ) $(BONUS_OBJ)
