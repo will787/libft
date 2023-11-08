@@ -16,7 +16,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 	{
-		return NULL;
+		return (NULL);
 	}
 	while (lst -> next)
 	{
