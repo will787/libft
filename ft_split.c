@@ -47,6 +47,16 @@ void	ft_free_memory(char **matrix)
 	free(matrix);
 }
 
+char	*ft_extract_word(char const **s, char c)
+{
+	const char	*start;
+
+	start = *s;
+	while (**s != c && **s)
+		(*s)++;
+	return (ft_substr(start, 0, *s - start));
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char		**arrspt;
@@ -57,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	if (arrspt == NULL)
 		return (NULL);
 	arrspt[ft_srchparams(s, c)] = NULL;
-	i = 0;
+	i = -1;
 	while (*s)
 	{
 		while (*s == c && *s)
@@ -65,15 +75,12 @@ char	**ft_split(char const *s, char c)
 		if (*s)
 		{
 			start = s;
-			while (*s != c && *s)
-				s++;
-			arrspt[i] = ft_substr(start, 0, s - start);
+			arrspt[++i] = ft_extract_word(&s, c);
 			if (arrspt[i] == NULL)
 			{
 				ft_free_memory (arrspt);
 				return (NULL);
 			}
-			i++;
 		}
 	}
 	return (arrspt);
